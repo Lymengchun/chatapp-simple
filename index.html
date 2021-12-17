@@ -84,6 +84,18 @@
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
       });
+
+      socket.on("output-messages", function (msg) {
+        if(msg.length){
+          msg.forEach(message =>{
+            var item = document.createElement("li");
+            item.textContent = message.msg;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+          }
+           ) }
+
+      });
     </script>
   </body>
 </html>
